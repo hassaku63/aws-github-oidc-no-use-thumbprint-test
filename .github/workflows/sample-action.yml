@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  test-action:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -19,6 +19,6 @@ jobs:
       with:
         role-to-assume: ${{secrets.ROLE_ARN}}
         aws-region: ${{vars.AWS_REGION}}
-    - name:  Execute CodePipeline execution
+    - name:  Execute AWS CLI example command
       run: |
         aws iam list-open-id-connect-providers
